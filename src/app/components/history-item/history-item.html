@@ -1,0 +1,37 @@
+<div class="history-item">
+  <div class="date-section">
+    <span class="date">{{ formattedDate }}</span>
+  </div>
+  <div class="values">
+
+    <div class="values-section">
+    <div class="value-row">
+      <span class="label">OPEN:</span>
+      <span class="value">R$ {{ convertToReais(data.open) | number:'1.4-4' }}</span>
+    </div>
+    <div class="value-row">
+      <span class="label">CLOSE:</span>
+      <span class="value">R$ {{ convertToReais(data.close) | number:'1.4-4' }}</span>
+    </div>
+  </div>
+
+  <div class="values-section">
+    <div class="value-row">
+      <span class="label">HIGH:</span>
+      <span class="value">R$ {{ convertToReais(data.high) | number:'1.4-4' }}</span>
+    </div>
+    <div class="value-row">
+      <span class="label">LOW:</span>
+      <span class="value">R$ {{ convertToReais(data.low) | number:'1.4-4' }}</span>
+    </div>
+  </div>
+</div>
+
+  <div class="diff-section">
+    <span class="label">CLOSE DIFF (%):</span>
+    <span class="diff-value" [class.positive]="isPositive" [class.negative]="!isPositive">
+      {{ diffPercentage }}
+      <span class="arrow">{{ isPositive ? '▲' : '▼' }}</span>
+    </span>
+  </div>
+</div>

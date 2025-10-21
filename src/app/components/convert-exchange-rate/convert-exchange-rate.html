@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="header">
+    <div class="logo"></div>
+    <div class="content">
+      <h1 class="title">BRL EXCHANGE RATE</h1>
+      <div class="input-group">
+        <input
+          type="text"
+          placeholder="Enter the currency code"
+          [(ngModel)]="currencyCode"
+          class="input-currency"
+        />
+        <button class="button-exchange" (click)="onExchange()">
+          EXCHANGE RESULT
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="exchange-rate-now" *ngIf="exchangeRate">
+    <div class="separator"></div>
+    <div class="rate-container">
+      <div class="rate-header">
+        <div class="time-info">
+          <h2>Exchange rate now</h2>
+          <p>{{ lastUpdated }}</p>
+        </div>
+        <div class="currency-pair">
+          <p>{{ currencyCode }}/BRL</p>
+        </div>
+      </div>
+      <div class="result">
+        <h1>R$ {{ exchangeRate | number:'1.2-2' }}</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="history-section" *ngIf="exchangeRate">
+    <div class="separator"></div>
+    <div class="history-toggle" (click)="toggleHistory()">
+      <span>LAST 30 DAYS</span>
+      <span class="icon">{{ showHistory ? '−' : '+' }}</span>
+    </div>
+    <div class="history-content" *ngIf="showHistory">
+      <convert-history [currencyCode]="currencyCode"/>
+    </div>
+  </div>
+
+</div>
