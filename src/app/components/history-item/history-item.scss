@@ -5,8 +5,10 @@
   align-items: flex-start;
   padding: 20px;
   background: #f9f9f9;
-  width: 310px;
-  height: 141px;
+  width: 100%;
+  min-height: 141px;
+  border-radius: 8px;
+  box-sizing: border-box;
 
   .date-section {
     display: flex;
